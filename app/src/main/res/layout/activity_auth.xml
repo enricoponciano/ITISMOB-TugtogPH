@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/bg_screen_light">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- 1. HERO BRAND BANNER CARD WITH IMAGE BACKGROUND -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="128dp"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/bg_screen_dark"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/tugtog_emerald"
+            app:strokeWidth="1dp">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <!-- Background Image (app/src/main/res/drawable/auth_background.png) -->
+                <ImageView
+                    android:id="@+id/ivHeroBannerBg"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="TugtogPH Banner Background"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/auth_background" />
+
+                <!-- Subtle Dark Scrim Overlay so text stays readable -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#55000000" />
+
+                <!-- Foreground Brand Content -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="bottom"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <FrameLayout
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:layout_marginEnd="8dp"
+                            android:background="@drawable/bg_icon_box"
+                            android:backgroundTint="@color/tugtog_emerald">
+
+                            <ImageView
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_music"
+                                app:tint="@color/white" />
+                        </FrameLayout>
+
+                        <!-- Two-Tone Brand Title: White "Tugtog" + Emerald Green "PH" -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tugtog"
+                            android:textColor="@color/white"
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="PH"
+                            android:textColor="@color/tugtog_emerald"
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Centralized PH Gig Finder &amp; Venue Booking"
+                        android:textColor="@color/white"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+            </FrameLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 2. LOG IN / SIGN UP SEGMENTED TOGGLE -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.TugtogPH.Card.Subtle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="4dp">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnModeLogin"
+                    style="@style/Widget.TugtogPH.Button.Band"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:text="Log In" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnModeSignup"
+                    style="@style/Widget.TugtogPH.Button.Band"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_weight="1"
+                    android:text="Sign Up"
+                    android:textColor="@color/text_secondary"
+                    app:backgroundTint="@color/bg_subtle_light" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 3. ACCOUNT ROLE SELECTOR (BAND VS. ORGANIZER) -->
+        <TextView
+            style="@style/TextAppearance.TugtogPH.FieldLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:text="SELECT ACCOUNT TYPE" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <!-- Band Role Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardRoleBand"
+                style="@style/Widget.TugtogPH.Card"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/tugtog_emerald_tint"
+                app:strokeColor="@color/tugtog_emerald"
+                app:strokeWidth="2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <FrameLayout
+                        android:id="@+id/iconBoxBand"
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@drawable/bg_icon_box"
+                        android:backgroundTint="@color/tugtog_emerald">
+
+                        <ImageView
+                            android:id="@+id/ivIconBand"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_music"
+                            app:tint="@color/white" />
+                    </FrameLayout>
+
+                    <TextView
+                        style="@style/TextAppearance.TugtogPH.CardTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Band" />
+
+                    <TextView
+                        style="@style/TextAppearance.TugtogPH.MutedCaption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Find Gigs Near You" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Organizer Role Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardRoleOrganizer"
+                style="@style/Widget.TugtogPH.Card"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <FrameLayout
+                        android:id="@+id/iconBoxOrganizer"
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@drawable/bg_icon_box"
+                        android:backgroundTint="@color/bg_subtle_light">
+
+                        <ImageView
+                            android:id="@+id/ivIconOrganizer"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_venue"
+                            app:tint="@color/text_secondary" />
+                    </FrameLayout>
+
+                    <TextView
+                        style="@style/TextAppearance.TugtogPH.CardTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Organizer" />
+
+                    <TextView
+                        style="@style/TextAppearance.TugtogPH.MutedCaption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Post Venue Gigs" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <!-- 4. AUTHENTICATION INPUT FIELDS CARD -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.TugtogPH.Card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Account Name (Shown only in Sign Up mode) -->
+                <LinearLayout
+                    android:id="@+id/layoutAccountName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/tvNameLabel"
+                        style="@style/TextAppearance.TugtogPH.FieldLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:text="Band / Artist Name" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.TugtogPH.TextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:hintEnabled="false">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etAccountName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="e.g., Hiraya Collective"
+                            android:inputType="textPersonName"
+                            android:textColor="@color/text_primary"
+                            android:textSize="13sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+                <!-- Email Address -->
+                <TextView
+                    style="@style/TextAppearance.TugtogPH.FieldLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:text="Email Address" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.TugtogPH.TextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="band@tugtog.ph"
+                        android:inputType="textEmailAddress"
+                        android:textColor="@color/text_primary"
+                        android:textSize="13sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Password -->
+                <TextView
+                    style="@style/TextAppearance.TugtogPH.FieldLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:text="Password" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.TugtogPH.TextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:endIconMode="password_toggle"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter password"
+                        android:inputType="textPassword"
+                        android:textColor="@color/text_primary"
+                        android:textSize="13sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Spotify Link Option (Band Sign Up only) -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardSpotifyLink"
+                    style="@style/Widget.TugtogPH.Card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:visibility="gone"
+                    app:cardBackgroundColor="@color/tugtog_emerald_tint"
+                    app:strokeColor="@color/tugtog_emerald"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="10dp">
+
+                        <CheckBox
+                            android:id="@+id/cbSpotifyLink"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="true" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/TextAppearance.TugtogPH.CardTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Connect Spotify Artist Profile"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                style="@style/TextAppearance.TugtogPH.MutedCaption"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Verify band &amp; pull top tracks via Spotify API" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Primary Auth Submit Button -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSubmitAuth"
+                    style="@style/Widget.TugtogPH.Button.Band"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="16dp"
+                    android:text="Log In as Band" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 5. QUICK 1-TAP DEMO ACCESS FOR TESTING -->
+        <TextView
+            style="@style/TextAppearance.TugtogPH.FieldLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="8dp"
+            android:text="QUICK DEMO ACCESS" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDemoBand"
+                style="@style/Widget.TugtogPH.Button.Outline"
+                android:layout_width="0dp"
+                android:layout_height="42dp"
+                android:layout_marginEnd="6dp"
+                android:layout_weight="1"
+                android:text="Demo Band" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDemoOrganizer"
+                style="@style/Widget.TugtogPH.Button.Outline"
+                android:layout_width="0dp"
+                android:layout_height="42dp"
+                android:layout_marginStart="6dp"
+                android:layout_weight="1"
+                android:text="Demo Organizer" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

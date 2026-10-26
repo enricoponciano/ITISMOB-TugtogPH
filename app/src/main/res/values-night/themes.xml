@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Locked to Light Mode -->
+    <style name="Base.Theme.TugtogPH" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/tugtog_emerald</item>
+        <item name="colorPrimaryVariant">@color/tugtog_emerald_dark</item>
+        <item name="colorSecondary">@color/tugtog_amber</item>
+        <item name="android:windowBackground">@color/bg_screen_light</item>
+        <item name="android:statusBarColor">@color/bg_card_light</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+    </style>
+</resources>

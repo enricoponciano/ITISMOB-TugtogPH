@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary Brand Accents (Band = Emerald, Organizer = Amber) -->
+    <color name="tugtog_emerald">#10B981</color>
+    <color name="tugtog_emerald_dark">#059669</color>
+    <color name="tugtog_emerald_tint">#ECFDF5</color>
+    <color name="tugtog_emerald_soft">#1A10B981</color>
+
+    <color name="tugtog_amber">#F59E0B</color>
+    <color name="tugtog_amber_dark">#D97706</color>
+    <color name="tugtog_amber_tint">#FFFBEB</color>
+    <color name="tugtog_amber_soft">#1AF59E0B</color>
+
+    <color name="tugtog_indigo">#4F46E5</color>
+
+    <!-- Light Mode Surfaces & Borders -->
+    <color name="bg_screen_light">#F8FAFC</color>
+    <color name="bg_card_light">#FFFFFF</color>
+    <color name="bg_subtle_light">#F1F5F9</color>
+    <color name="border_light">#E2E8F0</color>
+
+    <!-- Light Mode Typography -->
+    <color name="text_primary">#0F172A</color>
+    <color name="text_secondary">#475569</color>
+    <color name="text_muted">#64748B</color>
+
+    <color name="text_primary_light">#0F172A</color>
+    <color name="text_secondary_light">#475569</color>
+    <color name="text_muted_light">#64748B</color>
+
+    <!-- Dark Banner Card Surfaces -->
+    <color name="bg_screen_dark">#0F1115</color>
+    <color name="bg_card_dark">#18181B</color>
+    <color name="bg_subtle_dark">#27272A</color>
+    <color name="border_dark">#3F3F46</color>
+    <color name="text_primary_dark">#FFFFFF</color>
+    <color name="text_muted_dark">#A1A1AA</color>
+
+    <!-- Utility Colors -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="transparent">#00000000</color>
+</resources>
