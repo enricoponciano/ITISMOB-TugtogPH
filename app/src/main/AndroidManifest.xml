@@ -28,6 +28,33 @@
             android:name=".MainActivity"
             android:exported="false" />
 
+        <!-- VenueProfileActivity -->
+        <activity
+            android:name=".VenueProfileActivity"
+            android:exported="false" />
+
+        <!-- EditVenueActivity -->
+        <activity
+            android:name=".EditVenueActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- BandPreviewActivity -->
+        <activity
+            android:name=".BandPreviewActivity"
+            android:exported="false" />
+
+        <!-- PostGigActivity -->
+        <activity
+            android:name=".PostGigActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- ManageGigsActivity -->
+        <activity
+            android:name=".ManageGigsActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>

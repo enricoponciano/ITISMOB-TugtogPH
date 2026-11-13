@@ -21,11 +21,14 @@
             android:padding="16dp">
 
             <TextView
+                android:id="@+id/tvBack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/tugtog_emerald"
                 android:text="← Back to Applicants"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:clickable="true"
+                android:focusable="true"/>
 
             <Space
                 android:layout_width="0dp"
@@ -49,6 +52,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
                 android:scaleType="centerCrop"
+                android:src="@drawable/band1"
                 android:background="@color/bg_subtle_light"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -70,6 +74,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
+                    android:src="@drawable/band1"
                     android:background="@color/bg_card_light" />
             </com.google.android.material.card.MaterialCardView>
 

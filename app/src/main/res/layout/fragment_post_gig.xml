@@ -19,8 +19,18 @@
             android:orientation="horizontal"
             android:gravity="center_vertical"
             android:layout_marginBottom="16dp">
-            
+
             <TextView
+                android:id="@+id/tvCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/tugtog_emerald"
+                android:text="Cancel"
+                android:textStyle="bold"
+                android:paddingEnd="16dp"/>
+
+            <TextView
+                android:id="@+id/tvTopHeading"
                 style="@style/TextAppearance.TugtogPH.Heading"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -47,45 +57,40 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
-                    android:text="Venue Cover Photo" />
+                    android:text="Event Cover Photo" />
 
-                <ImageView
-                    android:id="@+id/ivVenueCover"
+                <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="120dp"
-                    android:scaleType="centerCrop"
-                    android:background="@color/bg_subtle_light"
-                    android:layout_marginBottom="8dp" />
-
-                <!-- Genre Chips -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
                     android:layout_marginBottom="16dp">
 
-                    <com.google.android.material.chip.Chip
-                        style="@style/Widget.TugtogPH.Chip"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Club Stage"
-                        app:chipBackgroundColor="@color/tugtog_amber"
-                        android:textColor="@color/white"/>
+                    <ImageView
+                        android:id="@+id/ivVenueCover"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:background="@color/bg_subtle_light" />
 
-                    <com.google.android.material.chip.Chip
-                        style="@style/Widget.TugtogPH.Chip"
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:text="Indie Bar" />
-
-                    <com.google.android.material.chip.Chip
-                        style="@style/Widget.TugtogPH.Chip"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:text="Acoustic Lounge" />
-                </LinearLayout>
+                        android:layout_gravity="center"
+                        android:orientation="vertical"
+                        android:gravity="center">
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_add_circle"
+                            app:tint="@color/text_muted_light" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Insert Image"
+                            android:textColor="@color/text_muted_light"
+                            android:textSize="12sp"
+                            android:layout_marginTop="4dp" />
+                    </LinearLayout>
+                </FrameLayout>
 
                 <!-- Form Fields -->
                 <TextView
@@ -103,6 +108,7 @@
                     app:hintEnabled="false">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etTitle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="e.g., Indie Friday Night"
@@ -203,6 +209,7 @@
                             app:hintEnabled="false">
 
                             <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etDate"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Sat, Nov 21"
@@ -231,8 +238,10 @@
                             app:hintEnabled="false">
 
                             <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etPay"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:inputType="number"
                                 android:text="4000"
                                 android:textColor="@color/tugtog_emerald"
                                 android:textStyle="bold"
@@ -241,7 +250,37 @@
                     </LinearLayout>
                 </LinearLayout>
 
-                <!-- House Rules -->
+                <!-- Max Bands Row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="12dp">
+
+                    <TextView
+                        style="@style/TextAppearance.TugtogPH.FieldLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:text="Maximum Bands" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.TugtogPH.TextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:hintEnabled="false">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etMaxBands"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:text="4"
+                            android:textSize="13sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+                <!-- Description -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -254,7 +293,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:textColor="@color/tugtog_amber"
-                        android:text="House Rules &amp; Requirements" />
+                        android:text="Description" />
                         
                     <TextView
                         style="@style/TextAppearance.TugtogPH.MutedCaption"
@@ -267,48 +306,18 @@
                     style="@style/Widget.TugtogPH.TextInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
+                    android:layout_marginBottom="16dp"
                     app:hintEnabled="false">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etDescription"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:lines="3"
+                        android:lines="4"
                         android:gravity="top|start"
-                        android:hint="e.g., Bring own breakables (snare, cymbals, pedal), 15-min changeover."
+                        android:hint="Tell artists about your gig..."
                         android:textSize="13sp" />
                 </com.google.android.material.textfield.TextInputLayout>
-
-                <!-- Rule Chips -->
-                <com.google.android.material.chip.ChipGroup
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp">
-
-                    <com.google.android.material.chip.Chip
-                        style="@style/Widget.TugtogPH.Chip"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="+ Bring own breakables (snare/cymbals)" />
-
-                    <com.google.android.material.chip.Chip
-                        style="@style/Widget.TugtogPH.Chip"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="+ 15-min changeover" />
-
-                    <com.google.android.material.chip.Chip
-                        style="@style/Widget.TugtogPH.Chip"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="+ Original OPM prioritized" />
-
-                    <com.google.android.material.chip.Chip
-                        style="@style/Widget.TugtogPH.Chip"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="+ +2 Guestlist per member" />
-                </com.google.android.material.chip.ChipGroup>
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnSubmitPost"
