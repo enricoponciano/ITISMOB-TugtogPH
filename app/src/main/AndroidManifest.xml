@@ -55,6 +55,28 @@
             android:name=".ManageGigsActivity"
             android:exported="false" />
 
+        <!-- Band flow activities -->
+        <activity
+            android:name=".BandDashboardActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".GigDetailActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".BandProfileActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".EditBandProfileActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".MyApplicationsActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>

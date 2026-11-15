@@ -268,17 +268,19 @@ public class AuthActivity extends AppCompatActivity {
      */
     private void proceedToMainScreen(String accountLabel) {
         String roleTag = isBandRole ? "Band" : "Organizer";
-        
-        if (isBandRole) {
-            Toast.makeText(this, "Band Dashboard coming soon! (Prototype is for Organizer)", Toast.LENGTH_LONG).show();
-            return; // Don't proceed to Organizer dashboard
-        }
-        
+
         Toast.makeText(
                 this,
                 "Signed in as " + accountLabel + " (" + roleTag + ")",
                 Toast.LENGTH_SHORT
         ).show();
+
+        if (isBandRole) {
+            Intent intent = new Intent(AuthActivity.this, BandDashboardActivity.class);
+            intent.putExtra("ACCOUNT_NAME", accountLabel);
+            startActivity(intent);
+            return;
+        }
 
         Intent intent = new Intent(AuthActivity.this, MainActivity.class);
         intent.putExtra("ACCOUNT_NAME", accountLabel);

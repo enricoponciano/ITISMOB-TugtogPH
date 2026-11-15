@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Widget.TugtogPH.Card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Status badge + venue row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+
+            <!-- Status chip — tinted dynamically in adapter -->
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                app:chipCornerRadius="4dp"
+                app:chipMinHeight="24dp"
+                app:chipStrokeWidth="0dp"
+                tools:chipBackgroundColor="@color/tugtog_amber"
+                tools:text="PENDING" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/tvAppVenue"
+                style="@style/TextAppearance.TugtogPH.MutedCaption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/tugtog_amber"
+                android:textStyle="bold"
+                tools:text="Mow's Bar QC" />
+        </LinearLayout>
+
+        <!-- Gig title -->
+        <TextView
+            android:id="@+id/tvAppGigTitle"
+            style="@style/TextAppearance.TugtogPH.CardTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:textSize="15sp"
+            tools:text="Indie &amp; Math Rock Night" />
+
+        <!-- Date + pay row -->
+        <TextView
+            android:id="@+id/tvAppGigMeta"
+            style="@style/TextAppearance.TugtogPH.MutedCaption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            tools:text="SAT, NOV 7  •  ₱3,500" />
+
+        <!-- Action row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnWithdraw"
+                style="@style/Widget.TugtogPH.Button.Outline"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:text="Withdraw" />
+        </LinearLayout>
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>
