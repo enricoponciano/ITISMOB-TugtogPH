@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_screen_light"
+    tools:context=".GigDetailsActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@id/bottomActionBar"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Cover photo header -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="230dp">
+
+                <ImageView
+                    android:id="@+id/ivGigCover"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/bg_subtle_light"
+                    android:contentDescription="Venue photo"
+                    android:scaleType="centerCrop"
+                    tools:src="@drawable/mows_venue" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#4D000000" />
+
+                <ImageView
+                    android:id="@+id/ivBack"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="16dp"
+                    android:background="@drawable/bg_circle"
+                    android:clickable="true"
+                    android:contentDescription="Back"
+                    android:focusable="true"
+                    android:padding="9dp"
+                    android:src="@drawable/ic_arrow_back"
+                    app:tint="@color/text_primary" />
+
+                <ImageView
+                    android:id="@+id/ivSave"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="top|end"
+                    android:layout_margin="16dp"
+                    android:background="@drawable/bg_circle"
+                    android:clickable="true"
+                    android:contentDescription="Save gig"
+                    android:focusable="true"
+                    android:padding="9dp"
+                    android:src="@drawable/ic_bookmark_border"
+                    app:tint="@color/text_secondary" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/tvGigGenre"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_pill"
+                        android:backgroundTint="#B3000000"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="4dp"
+                        android:textColor="@color/white"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        tools:text="INDIE" />
+
+                    <TextView
+                        android:id="@+id/tvGigStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/bg_pill"
+                        android:backgroundTint="@color/tugtog_amber"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="4dp"
+                        android:textColor="@color/white"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        android:visibility="gone"
+                        tools:text="PENDING"
+                        tools:visibility="visible" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:id="@+id/tvGigMeta"
+                    style="@style/TextAppearance.TugtogPH.MutedCaption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/tugtog_emerald_dark"
+                    android:textStyle="bold"
+                    tools:text="MOW'S BAR • SAT, NOV 21" />
+
+                <TextView
+                    android:id="@+id/tvGigTitle"
+                    style="@style/TextAppearance.TugtogPH.Heading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:textSize="22sp"
+                    tools:text="Indie &amp; Math Rock Night" />
+
+                <TextView
+                    android:id="@+id/tvGigLocation"
+                    style="@style/TextAppearance.TugtogPH.MutedCaption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="16dp"
+                    android:drawablePadding="4dp"
+                    android:gravity="center_vertical"
+                    android:textSize="12sp"
+                    app:drawableStartCompat="@drawable/ic_map_pin"
+                    tools:text="Matalino St., Quezon City" />
+
+                <!-- Quick facts: pay / call time / slots -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.card.MaterialCardView
+                        style="@style/Widget.TugtogPH.Card"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="12dp">
+
+                            <TextView
+                                style="@style/TextAppearance.TugtogPH.FieldLabel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="PAY" />
+
+                            <TextView
+                                android:id="@+id/tvFactPay"
+                                style="@style/TextAppearance.TugtogPH.CardTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="15sp"
+                                tools:text="₱3,500" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        style="@style/Widget.TugtogPH.Card"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="12dp">
+
+                            <TextView
+                                style="@style/TextAppearance.TugtogPH.FieldLabel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="STARTS" />
+
+                            <TextView
+                                android:id="@+id/tvFactTime"
+                                style="@style/TextAppearance.TugtogPH.CardTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="15sp"
+                                tools:text="8:00 PM" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        style="@style/Widget.TugtogPH.Card"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="12dp">
+
+                            <TextView
+                                style="@style/TextAppearance.TugtogPH.FieldLabel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="SLOTS" />
+
+                            <TextView
+                                android:id="@+id/tvFactSlots"
+                                style="@style/TextAppearance.TugtogPH.CardTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="15sp"
+                                tools:text="3/5 filled" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+
+                <!-- About -->
+                <TextView
+                    style="@style/TextAppearance.TugtogPH.CardTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:text="About this Gig" />
+
+                <TextView
+                    android:id="@+id/tvGigDescription"
+                    style="@style/TextAppearance.TugtogPH.MutedCaption"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:lineSpacingExtra="3dp"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp"
+                    tools:text="Looking for high energy bands. Bring own breakables." />
+
+                <!-- House backline -->
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.TugtogPH.Card.Subtle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            style="@style/TextAppearance.TugtogPH.FieldLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="6dp"
+                            android:text="HOUSE BACKLINE"
+                            android:textColor="@color/tugtog_emerald_dark" />
+
+                        <TextView
+                            android:id="@+id/tvGigBackline"
+                            style="@style/TextAppearance.TugtogPH.MutedCaption"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="12sp"
+                            tools:text="5-pc Drum Kit, Ampeg Bass Combo, 4x Vocal Mics." />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Organizer -->
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.TugtogPH.Card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="12dp">
+
+                        <FrameLayout
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/bg_icon_box"
+                            android:backgroundTint="@color/tugtog_amber">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_venue"
+                                app:tint="@color/white" />
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tvOrganizerName"
+                                style="@style/TextAppearance.TugtogPH.CardTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                tools:text="Mow's Bar" />
+
+                            <TextView
+                                style="@style/TextAppearance.TugtogPH.MutedCaption"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Verified venue • Organizer" />
+                        </LinearLayout>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnMessage"
+                            style="@style/Widget.TugtogPH.Button.Outline"
+                            android:layout_width="wrap_content"
+                            android:layout_height="36dp"
+                            android:text="Message" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Sticky apply bar -->
+    <LinearLayout
+        android:id="@+id/bottomActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:background="@color/bg_card_light"
+        android:elevation="8dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvBarPay"
+                style="@style/TextAppearance.TugtogPH.CardTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                tools:text="₱3,500" />
+
+            <TextView
+                android:id="@+id/tvBarHint"
+                style="@style/TextAppearance.TugtogPH.MutedCaption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="per set • 2 slots left" />
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnApply"
+            style="@style/Widget.TugtogPH.Button.Band"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:minWidth="168dp"
+            android:paddingHorizontal="20dp"
+            android:text="Apply for this Gig" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

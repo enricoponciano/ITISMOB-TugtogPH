@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_screen_light"
+    tools:context=".BandProfileActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@id/bottomNav"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Cover & Avatar -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/ivBandCover"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:background="@color/bg_subtle_light"
+                    android:contentDescription="Band cover photo"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/band1"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardAvatar"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="16dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp"
+                    app:layout_constraintBottom_toBottomOf="@id/ivBandCover"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ivBandCover"
+                    app:strokeColor="@color/white"
+                    app:strokeWidth="2dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/bg_card_light"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/band1" />
+                </com.google.android.material.card.MaterialCardView>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/cardAvatar"
+                    app:layout_constraintTop_toBottomOf="@id/ivBandCover">
+
+                    <TextView
+                        android:id="@+id/tvBandName"
+                        style="@style/TextAppearance.TugtogPH.Heading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Hiraya Collective" />
+
+                    <TextView
+                        android:id="@+id/tvBandSubtitle"
+                        style="@style/TextAppearance.TugtogPH.MutedCaption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Quezon City • 48.3k listeners" />
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Genre chips (filled in from the saved profile) -->
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chipGroupBandGenres"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="12dp" />
+
+                <!-- Tappable stats -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardStatApplied"
+                        style="@style/Widget.TugtogPH.Card"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="12dp">
+
+                            <TextView
+                                android:id="@+id/tvStatApplied"
+                                style="@style/TextAppearance.TugtogPH.Heading"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/tugtog_amber_dark"
+                                tools:text="1" />
+
+                            <TextView
+                                style="@style/TextAppearance.TugtogPH.FieldLabel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="APPLIED" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardStatBooked"
+                        style="@style/Widget.TugtogPH.Card"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="12dp">
+
+                            <TextView
+                                android:id="@+id/tvStatBooked"
+                                style="@style/TextAppearance.TugtogPH.Heading"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/tugtog_emerald_dark"
+                                tools:text="1" />
+
+                            <TextView
+                                style="@style/TextAppearance.TugtogPH.FieldLabel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="BOOKED" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardStatSaved"
+                        style="@style/Widget.TugtogPH.Card"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="12dp">
+
+                            <TextView
+                                android:id="@+id/tvStatSaved"
+                                style="@style/TextAppearance.TugtogPH.Heading"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                tools:text="1" />
+
+                            <TextView
+                                style="@style/TextAppearance.TugtogPH.FieldLabel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="SAVED" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnEditBandProfile"
+                    style="@style/Widget.TugtogPH.Button.Band"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginBottom="12dp"
+                    android:text="Edit Profile" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnBandLogout"
+                    style="@style/Widget.TugtogPH.Button.Outline"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginBottom="20dp"
+                    android:text="Log Out"
+                    android:textColor="@color/tugtog_emerald_dark"
+                    app:strokeColor="@color/tugtog_emerald" />
+
+                <!-- Spotify tracks -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/TextAppearance.TugtogPH.FieldLabel"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="SPOTIFY TOP TRACKS"
+                        android:textColor="@color/tugtog_emerald_dark" />
+
+                    <TextView
+                        style="@style/TextAppearance.TugtogPH.MutedCaption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tap to preview" />
+                </LinearLayout>
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.TugtogPH.Card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <!-- Track 1 -->
+                        <LinearLayout
+                            android:id="@+id/rowTrack1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="?attr/selectableItemBackground"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:padding="12dp">
+
+                            <FrameLayout
+                                android:id="@+id/boxTrack1"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:background="@drawable/bg_icon_box"
+                                android:backgroundTint="@color/bg_screen_dark">
+
+                                <ImageView
+                                    android:id="@+id/ivTrack1"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/ic_play"
+                                    app:tint="@color/white" />
+                            </FrameLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="12dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    style="@style/TextAppearance.TugtogPH.CardTitle"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Katipunan 2AM"
+                                    android:textSize="13sp" />
+
+                                <TextView
+                                    android:id="@+id/tvTrack1Meta"
+                                    style="@style/TextAppearance.TugtogPH.MutedCaption"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="LRT Line 2 EP • 412K plays" />
+                            </LinearLayout>
+
+                            <TextView
+                                style="@style/TextAppearance.TugtogPH.MutedCaption"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="3:48" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/border_light" />
+
+                        <!-- Track 2 -->
+                        <LinearLayout
+                            android:id="@+id/rowTrack2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="?attr/selectableItemBackground"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:padding="12dp">
+
+                            <FrameLayout
+                                android:id="@+id/boxTrack2"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:background="@drawable/bg_icon_box"
+                                android:backgroundTint="@color/bg_screen_dark">
+
+                                <ImageView
+                                    android:id="@+id/ivTrack2"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/ic_play"
+                                    app:tint="@color/white" />
+                            </FrameLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="12dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    style="@style/TextAppearance.TugtogPH.CardTitle"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Ulan sa Maginhawa"
+                                    android:textSize="13sp" />
+
+                                <TextView
+                                    android:id="@+id/tvTrack2Meta"
+                                    style="@style/TextAppearance.TugtogPH.MutedCaption"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="LRT Line 2 EP • 289K plays" />
+                            </LinearLayout>
+
+                            <TextView
+                                style="@style/TextAppearance.TugtogPH.MutedCaption"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="4:12" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- About & Tech Rider -->
+                <TextView
+                    style="@style/TextAppearance.TugtogPH.CardTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="About &amp; Tech Rider" />
+
+                <TextView
+                    android:id="@+id/tvBandBio"
+                    style="@style/TextAppearance.TugtogPH.MutedCaption"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="5-piece alternative/math-rock band from QC."
+                    android:textColor="@color/text_secondary_light"
+                    android:textSize="13sp" />
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.TugtogPH.Card.Subtle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            style="@style/TextAppearance.TugtogPH.FieldLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:text="Gear Needs:"
+                            android:textColor="@color/tugtog_emerald_dark" />
+
+                        <TextView
+                            android:id="@+id/tvBandGear"
+                            style="@style/TextAppearance.TugtogPH.MutedCaption"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="2x Guitar Amps, 1x Bass Rig, 5-pc Drum Kit (own breakables), 3x Vocal Mics."
+                            android:textColor="@color/text_secondary_light" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.TugtogPH.Card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            style="@style/TextAppearance.TugtogPH.CardTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="6dp"
+                            android:text="Booking Contact" />
+
+                        <TextView
+                            android:id="@+id/tvBandContact"
+                            style="@style/TextAppearance.TugtogPH.MutedCaption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="fb.com/hirayacollective • 0917-555-0142"
+                            android:textColor="@color/tugtog_emerald_dark"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <include
+        android:id="@+id/bottomNav"
+        layout="@layout/view_band_bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
