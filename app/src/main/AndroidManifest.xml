@@ -50,6 +50,29 @@
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
 
+        <!-- ===== Band side ===== -->
+        <activity
+            android:name=".BandHomeActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
+
+        <activity
+            android:name=".GigDetailsActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".BandMyGigsActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".BandProfileActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".EditBandActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
         <!-- ManageGigsActivity -->
         <activity
             android:name=".ManageGigsActivity"

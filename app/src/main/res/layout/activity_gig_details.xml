@@ -334,12 +334,6 @@
                                 android:text="Verified venue • Organizer" />
                         </LinearLayout>
 
-                        <com.google.android.material.button.MaterialButton
-                            android:id="@+id/btnMessage"
-                            style="@style/Widget.TugtogPH.Button.Outline"
-                            android:layout_width="wrap_content"
-                            android:layout_height="36dp"
-                            android:text="Message" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
             </LinearLayout>

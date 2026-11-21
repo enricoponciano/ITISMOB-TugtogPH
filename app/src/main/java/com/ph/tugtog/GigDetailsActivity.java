@@ -76,9 +76,6 @@ public class GigDetailsActivity extends AppCompatActivity {
 
         btnApply.setOnClickListener(v -> BandGigActions.onActionClicked(this, gig, this::render));
 
-        findViewById(R.id.btnMessage).setOnClickListener(v ->
-                Toast.makeText(this, "Messaging " + gig.getVenue() + " is coming soon", Toast.LENGTH_SHORT).show());
-
         render();
     }
 

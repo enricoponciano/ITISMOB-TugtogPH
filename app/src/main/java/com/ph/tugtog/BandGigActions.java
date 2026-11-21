@@ -29,6 +29,7 @@ public final class BandGigActions {
                 return;
             }
             gig.setStatus(BandGig.STATUS_APPLIED);
+            gig.setBookedSlots(gig.getBookedSlots() + 1);
             Toast.makeText(context, "Applied to " + gig.getTitle(), Toast.LENGTH_SHORT).show();
             if (onChanged != null) onChanged.run();
         } else if (gig.getStatus() == BandGig.STATUS_APPLIED) {
@@ -39,6 +40,7 @@ public final class BandGigActions {
                     .setNegativeButton("Keep", null)
                     .setPositiveButton("Withdraw", (dialog, which) -> {
                         gig.setStatus(BandGig.STATUS_NONE);
+                        gig.setBookedSlots(Math.max(0, gig.getBookedSlots() - 1));
                         Toast.makeText(context, "Application withdrawn", Toast.LENGTH_SHORT).show();
                         if (onChanged != null) onChanged.run();
                     })

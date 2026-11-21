@@ -269,18 +269,23 @@ public class AuthActivity extends AppCompatActivity {
     private void proceedToMainScreen(String accountLabel) {
         String roleTag = isBandRole ? "Band" : "Organizer";
         
-        if (isBandRole) {
-            Toast.makeText(this, "Band Dashboard coming soon! (Prototype is for Organizer)", Toast.LENGTH_LONG).show();
-            return; // Don't proceed to Organizer dashboard
-        }
-        
         Toast.makeText(
                 this,
                 "Signed in as " + accountLabel + " (" + roleTag + ")",
                 Toast.LENGTH_SHORT
         ).show();
 
-        Intent intent = new Intent(AuthActivity.this, MainActivity.class);
+        // Bands go to the Band dashboard (Find Gigs); Organizers go to Gig Applicants
+        if (isBandRole && !isLoginMode && etAccountName.getText() != null
+                && !etAccountName.getText().toString().trim().isEmpty()) {
+            // A newly signed-up band's name becomes its profile name
+            BandPrefs.prefs(this).edit()
+                    .putString(BandPrefs.NAME, etAccountName.getText().toString().trim())
+                    .apply();
+        }
+
+        Intent intent = new Intent(AuthActivity.this,
+                isBandRole ? BandHomeActivity.class : MainActivity.class);
         intent.putExtra("ACCOUNT_NAME", accountLabel);
         intent.putExtra("ACCOUNT_ROLE", roleTag);
         intent.putExtra("SPOTIFY_LINKED", cbSpotifyLink.isChecked());

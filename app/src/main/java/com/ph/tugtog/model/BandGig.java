@@ -17,7 +17,7 @@ public class BandGig {
     private final String time;
     private final String payRate;
     private final String genre;
-    private final int bookedSlots;
+    private int bookedSlots;
     private final int maxSlots;
     private final int coverResId;
     private final String description;
@@ -55,6 +55,7 @@ public class BandGig {
     public String getPayRate() { return payRate; }
     public String getGenre() { return genre; }
     public int getBookedSlots() { return bookedSlots; }
+    public void setBookedSlots(int bookedSlots) { this.bookedSlots = bookedSlots; }
     public int getMaxSlots() { return maxSlots; }
     public int getCoverResId() { return coverResId; }
     public String getDescription() { return description; }
